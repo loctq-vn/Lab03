@@ -1,0 +1,64 @@
+﻿<Window x:Class="Bai8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bai8"
+        mc:Ignorable="d"
+        Title="Quản lý tài khoản" Height="500" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="QUẢN LÝ THÔNG TIN TÀI KHOẢN" FontSize="24" FontWeight="Medium" Foreground="Blue" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+        <Grid Grid.Row="1" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Số tài khoản" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+            <TextBox Name="txtSTK" Grid.Row="0" Grid.Column="1" Margin="5, 5, 100, 5" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Tên khách hàng" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+            <TextBox Name="txtTEN" Grid.Row="1" Grid.Column="1" Margin="5, 5, 100, 5" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Địa chỉ khách hàng" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+            <TextBox Name="txtDIACHI"  Grid.Row="2" Grid.Column="1" Margin="5, 5, 100, 5" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Số tiền trong tài khoản" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+            <TextBox Name="txtSOTIEN" Grid.Row="3" Grid.Column="1" Margin="5, 5, 100, 5" VerticalAlignment="Center"/>
+        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5,5,100,5">
+            <Button Content="Thêm / Cập Nhật" Width="120" Margin="5" Padding="5" Click="Button_Click"/>
+            <Button Content="Xóa" Width="80" Margin="5" Padding="5" Click="Button_Click_1"/>
+            <Button Content="Thoát" Width="80" Margin="5" Padding="5" Click="Button_Click_2"/>
+        </StackPanel>
+        <ListView Grid.Row="3" Name="List" SelectionChanged="List_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="STT" Width="50" DisplayMemberBinding="{Binding STT}"/>
+                    <GridViewColumn Header="Mã tài khoản" Width="120" DisplayMemberBinding="{Binding MaTaiKhoan}"/>
+                    <GridViewColumn Header="Tên khách hàng" Width="180" DisplayMemberBinding="{Binding TenKhachHang}"/>
+                    <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding DiaChi}"/>
+                    <GridViewColumn Header="Số tiền" Width="100" DisplayMemberBinding="{Binding SoTien}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal">
+            <TextBlock Text="Tổng tiền: " Margin="5"/>
+            <TextBox Name="txtTongTien" Width="200" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
